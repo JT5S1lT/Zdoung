@@ -1,1 +1,29 @@
-Windows 12
+#include <limits.h>
+const float Alpha = 166.5;
+
+
+bool Division(float *a){
+  *a = *a / Alpha;
+   return !(*a < 1);
+}
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  bool Success = true;
+  float Angle = INT_MAX;
+  
+  while (Success)
+  {
+    Success = Division(&Angle);
+    Serial.println(Angle);
+  }
+     digitalWrite(13, HIGH);
+}
+ 
+void loop()
+{
+  
+}
